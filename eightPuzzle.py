@@ -66,8 +66,8 @@ class PuzzleState(InformedProblemState):
         """
         i = self.puz.index('0')
         if i not in (0, 3, 6):
-            newPuz = ""
             index = i - 1
+            newPuz = ""
             newPuz = self.puz[0:index] + '0' + self.puz[index] + self.puz[i + 1:]
             return PuzzleState(newPuz)
         return PuzzleState(-1)
@@ -79,9 +79,9 @@ class PuzzleState(InformedProblemState):
         """
         i = self.puz.index('0')
         if i not in (2, 5, 8):
+            j = i + 1
             newPuz = ""
-            index = i + 1
-            newPuz = self.puz[0:i] + self.puz[index] + '0' + self.puz[index + 1:]
+            newPuz = self.puz[0:i] + self.puz[j] + '0' + self.puz[j + 1:]
             return PuzzleState(newPuz)
         return PuzzleState(-1)
 
@@ -92,9 +92,9 @@ class PuzzleState(InformedProblemState):
         """
         i = self.puz.index('0')
         if i not in (0, 1, 2):
+            j = i - 3
             newPuz = ""
-            index = i - 3
-            newPuz = self.puz[0:index] + '0' + self.puz[index + 1: i] + self.puz[index] + self.puz[i + 1:]
+            newPuz = self.puz[0:j] + '0' + self.puz[j + 1: i] + self.puz[j] + self.puz[i + 1:]
             return PuzzleState(newPuz)
         return PuzzleState(-1)
 
@@ -105,9 +105,9 @@ class PuzzleState(InformedProblemState):
         """
         i = self.puz.index('0')
         if i not in (6, 7, 8):
+            j = i + 3
             newPuz = ""
-            index = i + 3
-            newPuz = self.puz[0: i] + self.puz[index] + self.puz[i + 1: index] + '0' + self.puz[index + 1:]
+            newPuz = self.puz[0: i] + self.puz[j] + self.puz[i + 1: j] + '0' + self.puz[j + 1:]
             return PuzzleState(newPuz)
         return PuzzleState(-1)
 
