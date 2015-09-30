@@ -13,11 +13,11 @@ class MissionaryState(ProblemState):
     time on either side or they will be eaten. Either missionaries or cannibals
     can operate the boat.
 
-    lM = # of missionaries on left shore
-    lC = # of cannibals on left shore
-    bP = Boat position. '0' for left '1' for right
-    rM = # of missionaries on right shore
-    rC = # of cannibals on right shore
+    lM = # of missionaries on left shore.
+    lC = # of cannibals on left shore.
+    bP = Boat position. '0' for left '1' for right.
+    rM = # of missionaries on right shore.
+    rC = # of cannibals on right shore.
     """
     def __init__(self, lM, lC, bP, rM, rC):
         self.lM = lM
@@ -50,6 +50,7 @@ class MissionaryState(ProblemState):
         if (self.rM < self.rC) and self.rM > 0: return 1
         #Check if boat gets used incorrectly.
         if self.bP < 0 or self.bP > 1: return 1
+        #legal state.
         return 0
 
     def equals(self, state):
@@ -143,4 +144,5 @@ class MissionaryState(ProblemState):
                 self.twoRMtoL(), self.oneRCtoL(), self.twoRCtoL(),
                 self.oneRMoneRCtoL()]
 
+#Test 3 missionaries and Cannibals on left side
 Search(MissionaryState(3, 3, 0, 0, 0), MissionaryState(0, 0, 1, 3, 3))

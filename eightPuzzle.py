@@ -47,8 +47,8 @@ class PuzzleState(InformedProblemState):
         Tests whether the state is illegal. Illegal states return -1 from the
         operator.
         """
-        if self.puz == -1:
-            return 1
+        if self.puz == -1: return 1
+        #legal state
         return 0
 
     def equals(self, state):
@@ -68,7 +68,7 @@ class PuzzleState(InformedProblemState):
         if i not in (0, 3, 6):
             index = i - 1
             newPuz = ""
-            newPuz = self.puz[0:index] + '0' + self.puz[index] + self.puz[i + 1:]
+            newPuz = self.puz[0: index] + '0' + self.puz[index] + self.puz[i + 1:]
             return PuzzleState(newPuz)
         return PuzzleState(-1)
 
@@ -81,7 +81,7 @@ class PuzzleState(InformedProblemState):
         if i not in (2, 5, 8):
             j = i + 1
             newPuz = ""
-            newPuz = self.puz[0:i] + self.puz[j] + '0' + self.puz[j + 1:]
+            newPuz = self.puz[0: i] + self.puz[j] + '0' + self.puz[j + 1:]
             return PuzzleState(newPuz)
         return PuzzleState(-1)
 
@@ -94,7 +94,7 @@ class PuzzleState(InformedProblemState):
         if i not in (0, 1, 2):
             j = i - 3
             newPuz = ""
-            newPuz = self.puz[0:j] + '0' + self.puz[j + 1: i] + self.puz[j] + self.puz[i + 1:]
+            newPuz = self.puz[0: j] + '0' + self.puz[j + 1: i] + self.puz[j] + self.puz[i + 1:]
             return PuzzleState(newPuz)
         return PuzzleState(-1)
 
@@ -131,7 +131,7 @@ class PuzzleState(InformedProblemState):
         """
         Required method for use with InformedSearch class.
         Executes Manhattan Distance, Tiles Out of Place  or Breadth First
-        Search heuristics.
+        Search heuristics if uncommented.
         """
         #sum = 0
         #sum = PuzzleState.outOfPlace(self, goal
@@ -158,7 +158,9 @@ class PuzzleState(InformedProblemState):
                 sum += 1
         return sum
 
+#goal state
 goal = '123804765'
+#test states
 a = '130824765'
 b = '134862075'
 c = '013425876'
@@ -167,7 +169,7 @@ e = '812704653'
 f = '263405187'
 g = '734615802'
 h = '745603812'
-
+#search test states
 InformedSearch(PuzzleState(a), PuzzleState(goal))
 InformedSearch(PuzzleState(b), PuzzleState(goal))
 InformedSearch(PuzzleState(c), PuzzleState(goal))
