@@ -114,7 +114,7 @@ class Search:
         for current in path:
             if current.depth != 0:
                 print("Operator:", current.operator)
-            print( current.state)
+            print(current.state)
         print("Goal reached in", current.depth, "steps")
     def buildPath(self, node):
         """

@@ -84,3 +84,4 @@ class PitcherState(ProblemState):
 Search(PitcherState(0, 0), PitcherState(0, 2))
 #InformedSearch(PitcherState(0, 0), PitcherState(0, 2))
 
+

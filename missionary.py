@@ -1,4 +1,6 @@
 ### File missionary.py
+### Zachary Green
+### CS 480 Prog1
 ### Implements the Missionary and Cannibals Problem for state space search
 
 from search import *
